@@ -5,16 +5,17 @@ class Library:
 
     def add_book():
         "добавить книгу"
-
+        #проверяем существование файла Books.json
         try:
             with open('Books.json','r',encoding='utf-8') as file:
                 books = json.load(file)
         except (FileNotFoundError, FileExistsError):
             books = []
+
         title = input("Введите название книги: ")
         author = input("Введите автора книги: ")
         year = input("Введите год издания книги: ")
-
+        #создаём случайный id 
         books_id = str(uuid.uuid4())
         
         book = {
